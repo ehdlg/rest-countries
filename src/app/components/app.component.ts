@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesComponent } from './countries.component';
+import { HeaderComponent } from './header.component';
 import { RouterOutlet } from '@angular/router';
 import { CountriesService } from '../services/countries.service';
 import { Observable } from 'rxjs';
@@ -8,9 +9,10 @@ import { Country } from '../../interfaces';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CountriesComponent],
+  imports: [RouterOutlet, CountriesComponent, HeaderComponent],
   template: `
-    <main class="max-w-[2000px] mx-auto mt-12">
+    <app-header />
+    <main class="max-w-[1900px] px-4 mt-20 mx-auto">
       <app-countries [data$]="data$" />
       <router-outlet />
     </main>

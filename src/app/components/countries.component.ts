@@ -11,11 +11,11 @@ import { NgFor } from '@angular/common';
   imports: [AsyncPipe, CountryComponent, NgFor],
   template: `
     <div
-      class="grid xl:grid-cols-4 justify-items-center gap-y-28 lg:grid-cols-3 sm:grid-cols-2 mx-auto"
+      class="flex flex-wrap gap-12 justify-center xl:justify-between items-center"
     >
       @if(data$ | async; as countries){
       <div
-        class="w-[350px] rounded-xl shadow-lg hover:cursor-pointer hover:shadow-2xl hover:-translate-y-3 transition ease-in duration-200"
+        class="w-[350px] rounded-xl shadow-lg hover:cursor-pointer hover:shadow-2xl hover:-translate-y-3 hover:-translate-x-1 transition ease-in duration-200"
         *ngFor="let country of countries"
       >
         <app-country [country]="country"></app-country>
