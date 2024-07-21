@@ -3,7 +3,11 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   darkMode: "selector",
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Nunito Sans", "ui-sans-serif", "system-ui"],
+      },
+    },
   },
   plugins: [],
 };
