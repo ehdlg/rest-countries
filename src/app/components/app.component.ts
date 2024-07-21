@@ -1,32 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { CountriesComponent } from './countries.component';
 import { RouterOutlet } from '@angular/router';
 import { CountriesService } from '../services/countries.service';
 import { Observable } from 'rxjs';
 import { Country } from '../../interfaces';
-import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AsyncPipe, JsonPipe],
+  imports: [RouterOutlet, CountriesComponent],
   template: `
-    <main>
-      @if(data$ | async; as countries){ @for(country of countries; track 1){
-      <p>{{ country.capital }}</p>
-      } }
-      <main>
-        <router-outlet />
-      </main>
+    <main class="max-w-[2000px] mx-auto mt-12">
+      <app-countries [data$]="data$" />
+      <router-outlet />
     </main>
   `,
-  styles: [],
 })
-export class AppComponent implements OnInit {
-  constructor(private service: CountriesService) {}
-
+export class AppComponent {
   public data$!: Observable<Country[]>;
 
-  ngOnInit(): void {
+  constructor(private service: CountriesService) {
     this.data$ = this.service.get();
   }
 }
