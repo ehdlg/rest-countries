@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { API_URL, COUNTRY_FIELDS } from '../constants';
+import { API_URL, COUNTRY_FIELDS } from '../../constants';
 import { Observable } from 'rxjs';
-import { Country } from '../interfaces';
+import { Country } from '../../interfaces';
 
 @Injectable({
   providedIn: 'root',
