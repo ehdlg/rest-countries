@@ -43,8 +43,8 @@ export enum Region {
   Oceania = 'Oceania',
 }
 
-export type RegionOptionKeys = keyof typeof Region | 'All';
+export type AllRegions = keyof typeof Region | 'All';
 
-export const isValidRegion = (r: string): r is RegionOptionKeys => {
+export const isValidRegion = (r: string): r is AllRegions => {
   return r in REGION_FILTERS;
 };

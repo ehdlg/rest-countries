@@ -1,5 +1,5 @@
 export const API_URL = 'https://restcountries.com/v3.1/';
-import { RegionOptionKeys } from './interfaces';
+import { AllRegions } from './interfaces';
 
 export const COUNTRY_FIELDS = [
   'name',
@@ -14,7 +14,7 @@ export const COUNTRY_FIELDS = [
   'flags',
 ];
 
-export const REGION_FILTERS: Record<RegionOptionKeys, string> = {
+export const REGION_FILTERS: Record<AllRegions, string> = {
   All: 'all',
   Africa: 'region/africa',
   Americas: 'region/americas',
