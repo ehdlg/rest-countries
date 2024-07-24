@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { CountriesComponent } from './countries.component';
 import { HeaderComponent } from './header.component';
 import { RouterOutlet } from '@angular/router';
@@ -9,7 +9,7 @@ import { SearchComponent } from './search.component';
 import { REGION_FILTERS } from '../../constants';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   standalone: true,
   imports: [RouterOutlet, CountriesComponent, HeaderComponent, SearchComponent],
   template: `
@@ -21,7 +21,7 @@ import { REGION_FILTERS } from '../../constants';
     <router-outlet />
   `,
 })
-export class AppComponent {
+export class HomeComponent {
   public data$!: Observable<Country[]>;
 
   constructor(private service: CountriesService) {
