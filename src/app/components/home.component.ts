@@ -11,14 +11,10 @@ import { REGION_FILTERS } from '../../constants';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet, CountriesComponent, HeaderComponent, SearchComponent],
+  imports: [CountriesComponent, HeaderComponent, SearchComponent],
   template: `
-    <app-header />
-    <main class="max-w-[1900px] px-4 mt-20 mx-auto">
-      <app-search (regionEmitter)="updateRegion($event)" />
-      <app-countries [data$]="data$" />
-    </main>
-    <router-outlet />
+    <app-search (regionEmitter)="updateRegion($event)" />
+    <app-countries [data$]="data$" />
   `,
 })
 export class HomeComponent {
