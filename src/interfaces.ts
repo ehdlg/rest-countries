@@ -1,3 +1,5 @@
+import { REGION_FILTERS } from './constants';
+
 export interface Country {
   flags: Flags;
   name: Name;
@@ -40,3 +42,9 @@ export enum Region {
   Europe = 'Europe',
   Oceania = 'Oceania',
 }
+
+export type RegionOptionKeys = keyof typeof Region | 'All';
+
+export const isValidRegion = (r: string): r is RegionOptionKeys => {
+  return r in REGION_FILTERS;
+};
