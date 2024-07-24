@@ -11,7 +11,7 @@ import { NgFor } from '@angular/common';
   imports: [AsyncPipe, CountryComponent, NgFor],
   template: `
     <div
-      class="flex flex-wrap gap-12 justify-center xl:justify-between items-center"
+      class="grid gap-x-32 gap-y-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center"
     >
       @if(data$ | async; as countries){
       <div

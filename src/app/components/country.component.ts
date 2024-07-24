@@ -9,7 +9,7 @@ import { Country } from '../../interfaces';
     <div class="w-full rounded grid grid-rows-2 gap-2 h-full">
       <div class="w-full">
         <img
-          class="object-cover rounded h-48 w-full"
+          class="object-cover rounded h-52 w-full"
           [src]="country.flags.svg"
           alt=""
         />
