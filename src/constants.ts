@@ -1,5 +1,6 @@
-export const API_URL = 'https://restcountries.com/v3.1/';
 import { AllRegions } from './interfaces';
+
+export const API_URL = 'https://restcountries.com/v3.1/';
 
 export const COUNTRY_FIELDS = [
   'name',
