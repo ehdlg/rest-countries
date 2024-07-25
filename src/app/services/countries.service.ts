@@ -12,7 +12,7 @@ export class CountriesService {
 
   get(filter = 'all'): Observable<Country[]> {
     return this.http
-      .get<Country[]>(`${API_URL}${filter}?${COUNTRY_FIELDS.join(',')}`)
+      .get<Country[]>(`${API_URL}${filter}?fields=${COUNTRY_FIELDS.join(',')}`)
       .pipe(
         map((data) => {
           return data.sort((a, b) => (a.name.common >= b.name.common ? 1 : -1));
@@ -22,7 +22,9 @@ export class CountriesService {
 
   getOne(country: string): Observable<Country> {
     return this.http
-      .get<Country[]>(`${API_URL}name/${country}?${COUNTRY_FIELDS.join(',')}`)
+      .get<Country[]>(
+        `${API_URL}name/${country}?fields=${COUNTRY_FIELDS.join(',')}`
+      )
       .pipe(map(([data]) => data));
   }
 }
