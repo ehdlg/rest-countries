@@ -19,4 +19,10 @@ export class CountriesService {
         })
       );
   }
+
+  getOne(country: string): Observable<Country> {
+    return this.http
+      .get<Country[]>(`${API_URL}name/${country}?${COUNTRY_FIELDS.join(',')}`)
+      .pipe(map(([data]) => data));
+  }
 }
