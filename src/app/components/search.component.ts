@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { NgFor, TitleCasePipe } from '@angular/common';
 import { isValidRegion, Region, AllRegions } from '../../interfaces';
 import { REGION_FILTERS } from '../../constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -35,12 +36,18 @@ import { REGION_FILTERS } from '../../constants';
   `,
 })
 export class SearchComponent {
-  public country = '';
+  public country: string = '';
   public region = 'All';
   protected options = Object.keys(REGION_FILTERS);
   @Output() regionEmitter = new EventEmitter<AllRegions>();
 
-  onSubmit() {}
+  constructor(private route: Router) {}
+
+  onSubmit() {
+    if (null == this.country) return;
+
+    this.route.navigate([this.country]);
+  }
 
   updateRegion(e: Event) {
     if (!(e.target instanceof HTMLSelectElement)) return;
