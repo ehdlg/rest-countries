@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.country-details-data p {
+  @apply font-bold text-xl;
+}
+
+.country-details-data span {
+  @apply font-normal;
+}
