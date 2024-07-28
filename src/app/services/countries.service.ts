@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { API_URL, COUNTRY_FIELDS } from '../../constants';
-import { map, Observable } from 'rxjs';
+import { forkJoin, map, Observable } from 'rxjs';
 import { Country } from '../../interfaces';
 
 @Injectable({
@@ -26,5 +26,15 @@ export class CountriesService {
         `${API_URL}name/${country}?fields=${COUNTRY_FIELDS.join(',')}`
       )
       .pipe(map(([data]) => data));
+  }
+
+  getBorderCountriesName(codes: string[]): Observable<string[]> {
+    const requests = codes.map((code) =>
+      this.http
+        .get<Country[]>(`${API_URL}alpha/${code}`)
+        .pipe(map(([data]) => data.name.common))
+    );
+
+    return forkJoin(requests);
   }
 }
