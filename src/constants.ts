@@ -13,6 +13,7 @@ export const COUNTRY_FIELDS = [
   'languages',
   'population',
   'flags',
+  'borders',
 ];
 
 export const REGION_FILTERS: Record<AllRegions, string> = {

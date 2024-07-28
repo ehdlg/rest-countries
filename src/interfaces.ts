@@ -10,6 +10,7 @@ export interface Country {
   subregion: string;
   languages: { [key: string]: string };
   population: number;
+  borders?: string[];
 }
 
 export interface Currency {
