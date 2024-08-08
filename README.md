@@ -1,27 +1,45 @@
-# RestCountries
+# REST Countries
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
+This project is an application for searching and displaying information about countries using the public API from [REST Countries](https://restcountries.com/). It was developed as part of a challenge on [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca), aimed at improving my skills in Angular, including handling HTTP requests, error management, routing, and the use of services and interceptors.
 
-## Development server
+## Live Preview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+You can view a live preview of this project [here](https://rest-countries-navy-theta.vercel.app/).
 
-## Code scaffolding
+## Project Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Technologies Used:** Angular, TypeScript, HTML, Tailwind CSS.
+- **API Used:** [REST Countries](https://restcountries.com/).
 
-## Build
+## Key Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Country Search and Display:**
 
-## Running unit tests
+   - Users can search for countries by name and view details such as capital, population, language, currency, and more.
+   - Implementation of filtering by region.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **User Interface:**
 
-## Running end-to-end tests
+   - Clean and responsive design using Tailwind CSS for styling.
+   - **Responsive Design:** The application is fully responsive, ensuring a smooth user experience across different devices and screen sizes.
+   - **Dark Mode:** Ability to toggle between light and dark modes based on user preferences.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. **Routing and Navigation:**
 
-## Further help
+   - Implementation of Angular routing to navigate between the country list view and detailed country pages.
+   - Improved understanding of route parameters and how to manage navigation state in Angular.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+4. **API Handling and Observables:**
+
+   - Use of Angular to make HTTP requests to the REST Countries API.
+   - Data flow management using `BehaviorSubject` and `async` pipes.
+   - Application-wide error handling using an error service and an HTTP interceptor.
+
+5. **Enhanced User Experience:**
+
+   - Implementation of loaders while awaiting API responses.
+   - User-friendly error notifications in case of request failures.
+
+## Purpose
+
+This project serves as a practical exercise in Angular development, focusing on building a frontend application that interacts with a RESTful API. It demonstrates the ability to handle HTTP requests, manage observables, implement routing, and ensure a smooth user experience. Additionally, this project reinforces my understanding of **Tailwind CSS**, especially in implementing **dark mode** and other responsive design features, as well as deepening my knowledge of Angular **routes** and **interceptors**.
