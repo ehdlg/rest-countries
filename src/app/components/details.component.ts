@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 import { CountriesService } from '../services/countries.service';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ErrorComponent } from './error.component';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [AsyncPipe, JsonPipe, RouterLink],
+  imports: [AsyncPipe, JsonPipe, RouterLink, ErrorComponent],
   template: `
     <a routerLink="/">
       <button
@@ -17,6 +18,7 @@ import { RouterLink } from '@angular/router';
         Back
       </button>
     </a>
+    <app-error />
     @if(data$ | async; as country){
     <div
       class="flex flex-col lg:grid grid-cols-2 mx-auto max-w-[1600px] mt-20 gap-8 w-full"
