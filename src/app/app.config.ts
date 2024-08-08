@@ -8,11 +8,15 @@ import {
   withInterceptors,
 } from '@angular/common/http';
 import { errorHandlerInterceptor } from './interceptors/error-handler.interceptor';
+import { loaderInterceptor } from './interceptors/loader.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, withComponentInputBinding()),
-    provideHttpClient(withFetch(), withInterceptors([errorHandlerInterceptor])),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([loaderInterceptor, errorHandlerInterceptor])
+    ),
   ],
 };
