@@ -16,7 +16,7 @@ import { RouterLink } from '@angular/router';
         </a>
 
         <div class="flex gap-2 items-center">
-          <button>
+          <button (click)="toggleDarkMode()">
             <app-theme-toggle-icon
               [darkMode]="darkMode"
               class="size-8 text-slate-800 dark:text-slate-200"
@@ -29,5 +29,19 @@ import { RouterLink } from '@angular/router';
   `,
 })
 export class HeaderComponent {
-  public darkMode = true;
+  private static htmlElement = document.documentElement;
+  public darkMode: boolean =
+    HeaderComponent.htmlElement.classList.contains('dark');
+
+  public toggleDarkMode() {
+    if (HeaderComponent.htmlElement.classList.contains('dark')) {
+      this.darkMode = false;
+      window.localStorage.setItem('theme', 'light');
+    } else {
+      this.darkMode = true;
+      window.localStorage.setItem('theme', 'dark');
+    }
+
+    HeaderComponent.htmlElement.classList.toggle('dark');
+  }
 }
