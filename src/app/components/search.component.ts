@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgFor, TitleCasePipe } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { isValidRegion, Region, AllRegions } from '../../interfaces';
 import { REGION_FILTERS } from '../../constants';
 import { Router } from '@angular/router';
@@ -10,22 +10,40 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [FormsModule, NgFor],
   template: `
-    <div class="flex justify-between  w-full p-4 mb-12">
-      <form (submit)="onSubmit()">
+    <div class="flex justify-between  w-full p-4 mb-12 gap-2">
+      <form
+        class="w-5/6 md:w-1/3 p-4 outline-none border-none rounded shadow-lg bg-white dark:bg-gray-700 flex gap-2"
+        (submit)="onSubmit()"
+      >
+        <button type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </button>
+
         <input
           type="text"
           placeholder="Search country"
           name="country"
           [(ngModel)]="country"
-          class="min-w-[200px] p-4 outline-none border-none rounded shadow-lg bg-white"
+          class="w-full outline-none text-gray-800 text-xl dark:text-gray-200 bg-inherit"
         />
-        <button type="submit">submit</button>
       </form>
-
       <select
-        name=""
-        id=""
-        class="p-4 rounded bg-white shadow-lg hover:cursor-pointer"
+        name="select-region"
+        id="select-region"
+        class="lg:w-1/6 w-1/4 dark:bg-gray-700 dark:text-gray-200 p-4 rounded bg-white shadow-lg hover:cursor-pointer"
         (change)="updateRegion($event)"
       >
         <option *ngFor="let option of options" [value]="option">

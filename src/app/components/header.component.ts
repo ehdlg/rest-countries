@@ -7,22 +7,25 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [ThemeToggleIconComponent, RouterLink],
   template: `
-    <header class="bg-white dark:bg-slate-800 drop-shadow-sm">
+    <header class="p-4 2xl:p-0 bg-white dark:bg-gray-700  drop-shadow-lg">
       <div
         class="max-w-[1900px] min-h-20 mx-auto flex justify-between items-center"
       >
         <a routerLink="/">
           <h2 class="text-2xl font-bold">Where in the world?</h2>
         </a>
-
         <div class="flex gap-2 items-center">
-          <button (click)="toggleDarkMode()">
+          <button id="toggleDark" (click)="toggleDarkMode()">
             <app-theme-toggle-icon
               [darkMode]="darkMode"
               class="size-8 text-slate-800 dark:text-slate-200"
             />
           </button>
-          <span class="font-bold">Dark mode</span>
+          <label
+            class="font-bold hover:cursor-pointer hidden lg:block"
+            for="toggleDark"
+            >{{ darkMode ? 'Light mode' : 'Dark mode' }}</label
+          >
         </div>
       </div>
     </header>

@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Country } from '../../interfaces';
 import { Observable } from 'rxjs';
 import { CountriesService } from '../services/countries.service';
@@ -18,15 +12,17 @@ import { RouterLink } from '@angular/router';
   template: `
     <a routerLink="/">
       <button
-        class="outline-none px-10 py-2 shadow-lg bg-slate-100 border-none"
+        class="outline-none px-10 py-2 shadow-lg bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded border-none"
       >
         Back
       </button>
     </a>
     @if(data$ | async; as country){
-    <div class="grid grid-cols-2 mx-auto max-w-[1600px] mt-20 gap-8 w-full">
-      <div class="lg:h-[500px] lg:w-[750px]">
-        <img class="w-full h-full" src="{{ country.flags.svg }}" alt="" />
+    <div
+      class="flex flex-col lg:grid grid-cols-2 mx-auto max-w-[1600px] mt-20 gap-8 w-full"
+    >
+      <div class="w-full h-full place-content-center">
+        <img class="aspect-video" src="{{ country.flags.svg }}" alt="" />
       </div>
 
       <div class="flex flex-col justify-center gap-12">
@@ -65,7 +61,7 @@ import { RouterLink } from '@angular/router';
           @for(borderCountry of borderCountries; track borderCountry){
           <a
             [routerLink]="['/', borderCountry]"
-            class="p-4 bg-slate-100 rounded"
+            class="p-4 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded hover:shadow-lg hover:scale-125 transition duration-200 ease-in"
             >{{ borderCountry }}</a
           >
           }
